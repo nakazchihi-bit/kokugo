@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【検証授業】単元『孤独と向き合う』インフォグラフィック</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #f7f1e9; /* A warmer, slightly darker background */
+            --card-bg: #ffffff;
+            --text-color: #6b5f55; /* Darker, more readable text */
+            --header-color: #5a4d42; /* Stronger header color */
+            --accent-blue: #a9d1f7; /* Clearer pastel blue */
+            --accent-pink: #f7c9d4; /* Deeper pastel pink */
+            --accent-orange: #ffd699; /* Changed from yellow to a readable soft orange */
+            --border-color: #f2e8e0;
+            --shadow-color: rgba(107, 95, 85, 0.12);
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: var(--bg-color);
+            padding: 3em;
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .infographic-container {
+            background-color: var(--card-bg);
+            padding: 3.5em;
+            border-radius: 24px;
+            max-width: 1200px;
+            margin: auto;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 8px 30px var(--shadow-color);
+        }
+        .infographic-header {
+            text-align: center;
+            margin-bottom: 2.5em;
+        }
+        .infographic-header .super-title {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--header-color);
+            letter-spacing: 1px;
+            display: inline-block;
+            background: var(--accent-pink);
+            padding: 0.5em 1.5em;
+            border-radius: 99px;
+        }
+        .infographic-header .main-title {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--header-color);
+            margin-top: 0.4em;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+        .synopsis {
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 1.5em auto 0 auto;
+            line-height: 2;
+            text-align: left;
+            background-color: #fcf8f3;
+            padding: 1em 1.5em;
+            border-radius: 16px;
+        }
+        .central-question-box {
+            background-color: var(--card-bg);
+            border: 2px dashed var(--accent-blue);
+            border-radius: 20px;
+            padding: 2.5em;
+            text-align: center;
+            margin-bottom: 3.5em;
+        }
+        .central-question-box .label {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--header-color);
+        }
+        .central-question-box .question {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: var(--header-color);
+            margin: 0.4em 0 0 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5em;
+            margin-bottom: 3.5em;
+        }
+        .info-card {
+            background-color: transparent;
+            padding: 0;
+        }
+        .card-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .card-content li {
+            padding-bottom: 0.8em;
+            margin-bottom: 0.8em;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .card-content li:last-child {
+            border-bottom: none;
+        }
+        .card-content h5 {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1.5em 0 1em 0;
+            color: var(--header-color);
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+         .card-content h5:first-child {
+            margin-top: 0;
+        }
+
+        .image-container {
+            border-radius: 16px;
+            margin-bottom: 1em;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .timeline-header {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5em;
+            color: var(--header-color);
+        }
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+        
+        .phase-heading {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--header-color);
+            margin: 2.5em 0 1.5em 0;
+            text-align: center;
+        }
+        .phase-heading:first-of-type {
+            margin-top: 0;
+        }
+        .phase-heading span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-left: 0.5em;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+        }
+        
+        .timeline-dot {
+            width: 55px;
+            height: 55px;
+            background-color: var(--card-bg);
+            border: 2px solid;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Kiwi Maru', serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-right: 1.5em;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        .timeline-item-1 .timeline-dot, .timeline-item-2 .timeline-dot { border-color: var(--accent-orange); color: var(--header-color); }
+        .timeline-item-3 .timeline-dot, .timeline-item-4 .timeline-dot { border-color: var(--accent-blue); color: var(--header-color); }
+        .timeline-item-5 .timeline-dot { border-color: var(--accent-pink); color: var(--header-color); }
+
+
+        .timeline-content {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5em 2em;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        .timeline-content h5 {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 0 0 0.8em 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .timeline-item-1 h5, .timeline-item-2 h5 { color: #d99b66; } /* Deeper orange for the header */
+        .timeline-item-3 h5, .timeline-item-4 h5 { color: #8cb3d9; } /* Deeper blue for the header */
+        .timeline-item-5 h5 { color: #e6a7b5; } /* Deeper pink for the header */
+
+
+        .timeline-content p {
+            margin: 0.5em 0;
+            line-height: 1.9;
+            font-size: 0.95rem;
+        }
+        .timeline-content p strong {
+            color: var(--header-color);
+            font-weight: 700;
+        }
+        .activity p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+        }
+        #ai-box {
+            background-color: #fcf8f3;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 0.8em 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding: 1em;
+            }
+            .infographic-container {
+                padding: 1.5em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <div class="super-title">検証授業</div>
+            <h1 class="main-title">孤独と向き合う</h1>
+            <h2 class="main-title" style="font-size: 1.5rem; margin-top: 0.2em; color: var(--text-color); font-weight: 400;">― 『山椒魚』と蛙の関係を通して ―</h2>
+            <p class="synopsis">
+                井伏鱒二の短編小説「山椒魚」は、狭い岩屋に入り込んだ山椒魚が出られなくなり、長い年月を閉じ込められて過ごす短編小説です。自由を失った山椒魚は、外の世界を夢見ながら孤独に苛まれ、やがて迷い込んできた蛙をも岩屋に閉じ込めてしまいます。蛙と口論を繰り返しつつも状況は変わらず、ただ年月が過ぎていきます。閉塞感や孤独、他者との関わりに潜む葛藤を寓話的に描いた作品です。
+            </p>
+        </header>
+
+        <section class="central-question-box">
+            <div class="label">単元の問い</div>
+            <h2 class="question">人とのつながりは、孤独を癒すのか、それとも深めるのか。</h2>
+        </section>
+
+        <section class="grid-section">
+            <div class="info-card">
+                <div class="card-content">
+                    <h5>科目・教材</h5>
+                    <ul>
+                        <li><strong>科目：</strong>探究国語（文学国語）</li>
+                        <li><strong>教材：</strong>「山椒魚」井伏鱒二</li>
+                    </ul>
+                    <h5>育成を目指す資質・能力</h5>
+                    <ul>
+                        <li>文学的な文章の特徴を踏まえ、多様な解釈を行いながら、人との関わりにおける孤独について自己や社会に結び付けて考えることができる。</li>
+                    </ul>
+                    <h5>単元目標</h5>
+                    <ul>
+                        <li><strong>知識・技能：</strong>文学的な文章やそれに関する文章の種類や特徴などについて理解を深めることができる。</li>
+                        <li><strong>思考力・判断力・表現力：</strong>文章の構成や展開、表現の仕方を踏まえ、解釈の多様性について考察することができる。</li>
+                        <li><strong>学びに向かう力・人間性等：</strong>言葉がもつ価値への認識を深めるとともに、生涯にわたって古典に親しみ自己を向上させ、我が国の言語文化の担い手としての自覚を深め、言葉を通して他者や社会に関わろうとする態度を養うことができる。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card activity">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="cycle.jpg" alt="探究のサイクルと生成AI">
+                    </div>
+                    <h5 style="margin-top: 1.5em;">本単元の主な言語活動</h5>
+                    <p>
+                        山椒魚と蛙の関係を整理し、生成AIをグループの一員とした対話活動を通して、人とのつながりの中で孤独の意味を多面的に考察する。
+                    </p>
+                    <h5 style="color: var(--header-color); border-color: var(--accent-pink); margin-top: 1.5em;">生成AI活用の工夫</h5>
+                    <p id="ai-box">
+                        授業デザインとして探究のサイクルを取り入れ、「課題の設定」では、あえて正解がない「答えのない問い」を扱う。これにより、生成AIが即答することを避け、生徒の思考を促す対話のパートナーとして機能するよう設計する。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="timeline-header">授業デザイン（全５時間）</h2>
+
+        <section class="timeline">
+            <h3 class="phase-heading">導入<span>（２時間）：山椒魚の孤独</span></h3>
+            <div class="timeline-item timeline-item-1">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-content">
+                    <h5>【第1時】導入・作品との出会い</h5>
+                    <p><strong>活動：</strong>単元の問いへの初発の考えをKAppに記述する。わからない表現や語彙はChatGPTの学習モードを活用し、通読する。</p>
+                    <p><strong>ねらい：</strong>学習の見通しを持ち、自分なりの解釈を持つ。</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-2">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-content">
+                    <h5>【第2時】本文読解①：「山椒魚の孤独」を読み取る</h5>
+                    <p><strong>活動：</strong>第1~3段落を読解し、「山椒魚の孤独」について考える。</p>
+                    <p><strong>ねらい：</strong>本文に即して山椒魚の心情を読み取る。</p>
+                </div>
+            </div>
+
+            <h3 class="phase-heading">展開<span>（２時間）：寓意を考える</span></h3>
+            <div class="timeline-item timeline-item-3">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-content">
+                    <h5>【第3時】本文読解②：「山椒魚と蛙の関係」を整理する</h5>
+                    <p><strong>活動：</strong>発問①「蛙はなぜ『怒っていない』と答えたのか」を考察する。</p>
+                    <p><strong>ねらい：</strong>登場人物の関係性を多面的に捉える。</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-4">
+                <div class="timeline-dot">4</div>
+                <div class="timeline-content">
+                    <h5>【第4時】本文読解③：小説の寓意を考える</h5>
+                    <p><strong>活動：</strong>小説全体の寓意について考え、単元の問いへと結びつける</p>
+                    <p><strong>ねらい：</strong>小説のテーマを探り、自己や社会とつなげて考える。</p>
+                </div>
+            </div>
+
+            <h3 class="phase-heading">まとめ<span>（１時間）：思考の再構築</span></h3>
+            <div class="timeline-item timeline-item-5">
+                <div class="timeline-dot">5</div>
+                <div class="timeline-content">
+                    <h5>本時【第5時】まとめ・思考の変容を分析</h5>
+                    <p><strong>活動：</strong>カスタムGPT「隣のはナンシー」との対話で単元の問いを再考。対話ログをKAppに添付し、「主体性」と「対話の工夫」を軸に思考の変容を分析する。</p>
+                    <p><strong>ねらい：</strong>学習を通した自己の思考の変容を客観的に捉え、言語化する。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
